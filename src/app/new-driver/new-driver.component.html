@@ -1,0 +1,37 @@
+<mat-card>
+    <form (submit)="onAddDriver(driverForm)" #driverForm="ngForm">
+      <mat-form-field>
+          <label> Driver Name</label>
+        <input
+          matInput
+          type="text"
+          name="Name"
+          ngModel
+          required
+          #title="ngModel">
+      </mat-form-field>
+      <mat-form-field>
+          <label>Driver Team</label>
+        <textarea
+          matInput
+          name="Team"
+          ngModel
+          required
+          #content="ngModel"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+          <label>Driver CarNum</label>
+        <textarea
+          matInput
+         rows="4"
+          name="CarNum"
+          ngModel
+          required
+          #content="ngModel"></textarea>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit">Save Driver</button>
+    </form>
+  </mat-card>

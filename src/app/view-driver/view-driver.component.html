@@ -1,0 +1,17 @@
+<mat-accordion *ngFor="let movie of MyDrivers">
+    <mat-expansion-panel [expanded]="true" >
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+    <h3> {{ driver.name }} </h3>
+    </mat-panel-title>
+    <mat-panel-description>
+    <h3>{{ driver.team  }}</h3>
+    </mat-panel-description>
+    </mat-expansion-panel-header>
+    <img src="{{driver.carnum}}">
+    <mat-action-row>
+    <button mat-button [routerLink]="['/edit', driver._id]" color="primary">EDIT</button>
+    <button mat-button (click) = "onDelete(driver._id)" color="warn">DELETE</button>
+    </mat-action-row>
+    </mat-expansion-panel>
+    </mat-accordion>
