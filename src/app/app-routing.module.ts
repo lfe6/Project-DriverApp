@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {  ViewDriverComponent} from './view-driver/view-driver.component';
 import { NewDriverComponent } from './new-driver/new-driver.component';
 import { EditDriverComponent } from "./edit-driver/edit-driver.component";
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,10 @@ const routes: Routes = [
   path: 'view-driver',
   component: ViewDriverComponent
 },
-
+{
+  path: '',
+  component: HomePageComponent
+},
 {
   path: 'edit-driver/:id',
   component:EditDriverComponent

@@ -19,13 +19,15 @@ import { NewDriverComponent } from './new-driver/new-driver.component';
 import { ViewDriverComponent } from './view-driver/view-driver.component';
 import {FormsModule} from '@angular/forms';
 import { EditDriverComponent } from "./edit-driver/edit-driver.component";
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewDriverComponent,
     ViewDriverComponent,
-    EditDriverComponent
+    EditDriverComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

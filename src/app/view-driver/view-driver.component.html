@@ -10,8 +10,9 @@
     </mat-expansion-panel-header>
     <h3>{{driver.CarNum}}</h3>
     <mat-action-row>
-    <button mat-button [routerLink]="['/edit', driver._id]" color="primary">EDIT</button>
+    <button mat-button [routerLink]="['/edit-driver', driver._id]" color="primary">EDIT</button>
     <button mat-button (click) = "onDelete(driver._id)" color="warn">DELETE</button>
+
     </mat-action-row>
     </mat-expansion-panel>
     </mat-accordion>
