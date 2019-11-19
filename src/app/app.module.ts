@@ -18,12 +18,14 @@ MatExpansionModule,
 import { NewDriverComponent } from './new-driver/new-driver.component';
 import { ViewDriverComponent } from './view-driver/view-driver.component';
 import {FormsModule} from '@angular/forms';
-//import { EditComponent } from './edit/edit.component';
+import { EditDriverComponent } from "./edit-driver/edit-driver.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     NewDriverComponent,
-    ViewDriverComponent
+    ViewDriverComponent,
+    EditDriverComponent
   ],
   imports: [
     BrowserModule,

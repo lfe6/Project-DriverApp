@@ -8,7 +8,7 @@
     <h3>{{ driver.team  }}</h3>
     </mat-panel-description>
     </mat-expansion-panel-header>
-    <img src="{{driver.carnum}}">
+    <h3>{{driver.carnum}}</h3>
     <mat-action-row>
     <button mat-button [routerLink]="['/edit', driver._id]" color="primary">EDIT</button>
     <button mat-button (click) = "onDelete(driver._id)" color="warn">DELETE</button>

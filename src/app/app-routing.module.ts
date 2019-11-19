@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {  ViewDriverComponent} from './view-driver/view-driver.component';
 import { NewDriverComponent } from './new-driver/new-driver.component';
+import { EditDriverComponent } from "./edit-driver/edit-driver.component";
 
 
 const routes: Routes = [
@@ -13,12 +14,12 @@ const routes: Routes = [
 {
   path: 'view-driver',
   component: ViewDriverComponent
-}/*,
+},
 
 {
-  path: 'edit/:id',
-  component:EditComponent
-}*/
+  path: 'edit-driver/:id',
+  component:EditDriverComponent
+}
 ];
 
 @NgModule({
