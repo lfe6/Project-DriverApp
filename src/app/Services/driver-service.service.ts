@@ -10,7 +10,7 @@ export class DriverServiceService {
 
   constructor(private http:HttpClient) { }
 
-  PostDriverInformation():Observable<any>{
+  GetDriverInformation():Observable<any>{
     return this.http.get('http://localhost:3000/api/drivers');
   }
 

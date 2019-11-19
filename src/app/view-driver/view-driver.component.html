@@ -1,14 +1,14 @@
-<mat-accordion *ngFor="let movie of MyDrivers">
+<mat-accordion *ngFor="let driver of MyDrivers">
     <mat-expansion-panel [expanded]="true" >
     <mat-expansion-panel-header>
     <mat-panel-title>
-    <h3> {{ driver.name }} </h3>
+    <h3> {{ driver.Name }} </h3>
     </mat-panel-title>
     <mat-panel-description>
-    <h3>{{ driver.team  }}</h3>
+    <h3>{{ driver.Team  }}</h3>
     </mat-panel-description>
     </mat-expansion-panel-header>
-    <h3>{{driver.carnum}}</h3>
+    <h3>{{driver.CarNum}}</h3>
     <mat-action-row>
     <button mat-button [routerLink]="['/edit', driver._id]" color="primary">EDIT</button>
     <button mat-button (click) = "onDelete(driver._id)" color="warn">DELETE</button>

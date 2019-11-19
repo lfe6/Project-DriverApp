@@ -12,9 +12,9 @@ mongoose.connect(mongoDB, {useNewUrlParser:true});
 const Schema = mongoose.Schema;
 
 const driverSchema = new Schema ({
-    name: String,
-    team: String, 
-    carnum: String 
+    Name: String,
+    Team: String, 
+    CarNum: String 
 });
 
 const DriverModel = mongoose.model('drivers',driverSchema);
@@ -33,21 +33,19 @@ next();
     
 app.get('/', (req, res) => res.send('Hello Driver!'))
 
-app.get('/hello/:name',(req, res) => {
-    console.log(req.params.name);
-    res.send('GoodMorning! '  +  req.params.name)
+app.get('/hello/:Name',(req, res) => {
+    console.log(req.params.Name);
+    res.send('GoodMorning! '  +  req.params.Name)
 })
 
-    app.put('/api/driver/:id',(req,res)=>{
+    app.put('/api/drivers/:id',(req,res)=>{
         console.log("edit" +req.params.id);
         DriverModel.findByIdAndUpdate(req,params.id,req,body,{new:true},(error,data)=>{
             res.send(data);
         })
     })
 
-
-
-app.get('/name', (req, res) => {
+app.get('/Name', (req, res) => {
     console.log('route calling');
     console.log(req.query.firstname);
 
@@ -62,7 +60,7 @@ res.sendFile(path.join(__dirname + '/index.html'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/api/driver', (req, res,next) => {
+app.get('/api/drivers', (req, res,next) => {
  
     console.log ("get request") 
     DriverModel.find((err,data) =>{
@@ -83,15 +81,15 @@ DriverModel.deleteOne({_id:req.params.id},(error,data)=>{
 app.post('/api/drivers', (req,res) =>{
     console.log('post Sucessfull');
     console.log(req.body)
-    console.log(req.body.name);
-    console.log(req.body.team);
-    console.log(req.body.carnum);
+    console.log(req.body.Name);
+    console.log(req.body.Team);
+    console.log(req.body.CarNum);
 
 
     DriverModel.create({
-        name:req.body.name,
-        team:req.body.team,
-        carnum:req.body.carnum
+        name:req.body.Name,
+        team:req.body.Team,
+        CarNum:req.body.CarNum
     });
 
         res.json('data uploaded');
@@ -132,7 +130,7 @@ const Schema = mongoose.Schema;
 const driverSchema = new Schema({
   name:String,
   team:String,
-  carnum:String
+  CarNum:String
 });
 
 const DriverModel = mongoose.model('driver',driverSchema);
@@ -186,12 +184,12 @@ console.log('post Sucessfull');
 console.log(req.body)
 console.log(req.body.name);
 console.log(req.body.team);
-console.log(req.body.carnum);
+console.log(req.body.CarNum);
 
 DriverModel.create({
   name: req.body.name,
   team: req.body.team,
-  carnum: req.body.carnum
+  CarNum: req.body.CarNum
 });
 res.json('data uploaded')
 

@@ -12,7 +12,7 @@ export class ViewDriverComponent implements OnInit {
   constructor(private driverService: DriverServiceService) { }
 
   ngOnInit() {
-    this.driverService.PostDriverInformation().subscribe((data) => {
+    this.driverService.GetDriverInformation().subscribe((data) => {
       this.MyDrivers = data.drivers;
       console.log(this.MyDrivers);
     })
