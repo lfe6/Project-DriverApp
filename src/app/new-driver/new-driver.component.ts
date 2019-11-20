@@ -17,7 +17,7 @@ export class NewDriverComponent implements OnInit {
   onAddDriver(form: NgForm) {
     console.log(form.value);
     this.DriverService.SendDriverInformation(form.value.Name,form.value.Team, form.value.CarNum).subscribe();
-    console.log(form.value);
+  
     form.resetForm();
     }
 }
