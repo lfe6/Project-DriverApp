@@ -17,7 +17,7 @@ const routes: Routes = [
   component: ViewDriverComponent
 },
 {
-  path: '',
+  path: 'home',
   component: HomePageComponent
 },
 {
