@@ -28,8 +28,14 @@ export class DriverServiceService {
     return this.http.get('http://localhost:3000/api/drivers/'+id);
   }
   
-  UpdateDriver(id:string,Name:string,Team:string,CarNum:string):Observable<any> {
+  UpdateDriver(id:String,Name:String,Team:String,CarNum:String):Observable<any> {
+
+
+    console.log(Name + "="+ CarNum);
     const driver:Driver = {Name:Name, Team:Team, CarNum:CarNum};
+
+
+    
     return this.http.put('http://localhost:3000/api/drivers/'+id,driver);
   }
 }

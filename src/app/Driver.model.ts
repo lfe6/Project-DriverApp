@@ -1,5 +1,5 @@
 export interface Driver {
-    Name: string;
-    Team: string;
-    CarNum: string;
+    Name: String;
+    Team: String;
+    CarNum: String;
     }

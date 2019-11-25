@@ -21,7 +21,7 @@ driver:any=[];
 
 
         onEditDriver(form: NgForm) {
-          
+          console.log(form.value.Name);
           this.driverService.UpdateDriver(this.driver._id,form.value.Name,form.value.Team,form.value.CarNum).subscribe();
           }
   }

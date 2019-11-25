@@ -30,7 +30,8 @@ res.header("Access-Control-Allow-Headers",
 next();
 });
 
-    
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());  
 app.get('/', (req, res) => res.send('Hello Driver!'))
 
 app.get('/hello/:Name',(req, res) => {
@@ -40,8 +41,10 @@ app.get('/hello/:Name',(req, res) => {
 
     app.put('/api/drivers/:id',(req,res)=>{
         console.log("edit" +req.params.id);
-        DriverModel.findByIdAndUpdate(req.params.id,req,body,{new:true},(error,data)=>{
+        console.log(req.body);
+        DriverModel.findByIdAndUpdate(req.params.id,req.body,{new:true},(error,data)=>{
             res.send(data);
+            
         })
     })
 
@@ -57,8 +60,7 @@ app.get('/whatever', (req, res) => res.send('GoodBye!'))
 app.get ('/test', (req, res) =>{
 res.sendFile(path.join(__dirname + '/index.html'))
 })
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
 
 app.get('/api/drivers', (req, res,next) => {
  
@@ -87,8 +89,8 @@ app.post('/api/drivers', (req,res) =>{
 
 
     DriverModel.create({
-        name:req.body.Name,
-        team:req.body.Team,
+        Name:req.body.Name,
+        Team:req.body.Team,
         CarNum:req.body.CarNum
     });
 
@@ -113,98 +115,3 @@ app.get('/api/drivers/:id',(req,res)=>{
 
 app.listen(PORT, () => 
 console.log(`Example app listening on port ${PORT}!`))
-
-/*
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const PORT = 3000;
-const cors = require('cors');
-const mongoose = require('mongoose');
-
-const mongoDB = 'mongodb+srv://DBLFE:<password>@cluster0-47zs3.mongodb.net/test?retryWrites=true&w=majority'
-mongoose.connect(mongoDB, {useNewUrlParser:true});
-
-const Schema = mongoose.Schema;
-
-const driverSchema = new Schema({
-  name:String,
-  team:String,
-  CarNum:String
-});
-
-const DriverModel = mongoose.model('driver',driverSchema);
-
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers",
-  "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-  });
-
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
-  res.send('hello world');
-})
-
-app.get('/api/driver', (req,res,next) => {
-  // const movies = [
-  //   {
-  //     "Title": "Avengers: Infinity War",
-  //     "Year": "2018",
-  //     "imdbID": "tt4154756",
-  //     "Type": "movie",
-  //     "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-  //   },
-  //   {
-  //     "Title": "Charlie Wilson's War",
-  //     "Year": "2007",
-  //     "imdbID": "tt0472062",
-  //     "Type": "movie",
-  //     "Poster": "https://m.media-amazon.com/images/M/MV5BMTgwMDgwMDc4MF5BMl5BanBnXkFtZTYwOTU3MDM4._V1_SX300.jpg"
-  //   }];
-  console.log("get request")
-  DriverModel.find((err,data)=>{
-    res.json({drivers:data});
-  })
-  
-  // res.json({
-  //   message: 'Posts fetched succesfully!',
-  //   movies: movies
-  // });
-})
-
-app.post('/api/drivers', (req,res) =>{
-console.log('post Sucessfull');
-console.log(req.body)
-console.log(req.body.name);
-console.log(req.body.team);
-console.log(req.body.CarNum);
-
-DriverModel.create({
-  name: req.body.name,
-  team: req.body.team,
-  CarNum: req.body.CarNum
-});
-res.json('data uploaded')
-
-
-})
-
-app.get('/api/drivers/:id',(req,res)=>{
-  console.log(req.params.id);
-
-  DriverModel.findById(req.params.id, (err, data)=>{
-    res.json(data);
-  })
-})
-
-app.listen(PORT, function () {
-  console.log('Server is running on Port: ', PORT);
-});
-*/
