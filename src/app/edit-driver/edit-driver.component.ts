@@ -17,7 +17,11 @@ driver:any=[];
       console.log(this.driver);
           }
          )}
+
+
+
         onEditDriver(form: NgForm) {
+          
           this.driverService.UpdateDriver(this.driver._id,form.value.Name,form.value.Team,form.value.CarNum).subscribe();
           }
   }

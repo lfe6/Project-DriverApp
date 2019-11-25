@@ -40,7 +40,7 @@ app.get('/hello/:Name',(req, res) => {
 
     app.put('/api/drivers/:id',(req,res)=>{
         console.log("edit" +req.params.id);
-        DriverModel.findByIdAndUpdate(req,params.id,req,body,{new:true},(error,data)=>{
+        DriverModel.findByIdAndUpdate(req.params.id,req,body,{new:true},(error,data)=>{
             res.send(data);
         })
     })
