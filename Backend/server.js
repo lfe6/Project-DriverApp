@@ -32,6 +32,7 @@ next();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());  
+    
 app.get('/', (req, res) => res.send('Hello Driver!'))
 
 app.get('/hello/:Name',(req, res) => {
@@ -44,7 +45,6 @@ app.get('/hello/:Name',(req, res) => {
         console.log(req.body);
         DriverModel.findByIdAndUpdate(req.params.id,req.body,{new:true},(error,data)=>{
             res.send(data);
-            
         })
     })
 
